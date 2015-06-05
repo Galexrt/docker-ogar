@@ -4,7 +4,7 @@ MAINTAINER Alexander T. <galexrt@googlemail.com>
 ENV DATA_PATH="/data"
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod 755 /docker-entrypoint.sh && \
-    apk --update add nodejs git && \
+    apk --update add bash nodejs git && \
     mkdir -p "$DATA_PATH" && \
     cd "$DATA_PATH" && \
     git clone git://github.com/forairan/Ogar.git . && \

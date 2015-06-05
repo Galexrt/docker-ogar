@@ -17,4 +17,4 @@ if [ ! -z "$SERVER_BOTS" ]; then
     sed -i 's/serverPort = .*$/serverPort = '"$SERVER_BOTS"'/g' "$DATA_PATH/gameserver.ini"
 fi
 
-node Ogar
+node "$DATA_PATH/src/index.js"

@@ -8,5 +8,4 @@ RUN apk --update add nodejs git && \
     cd "$DATA_PATH" && \
     git clone git://github.com/forairan/Ogar.git . && \
     npm install ws
-WORKDIR "$DATA_PATH/src"
 ENTRYPOINT ["/docker-entrypoint.sh"]

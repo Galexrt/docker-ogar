@@ -6,6 +6,7 @@ ADD docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod 755 /docker-entrypoint.sh && \
     apk --update add nodejs git && \
     mkdir -p "$DATA_PATH" && \
-    git clone git://github.com/forairan/Ogar.git "$DATA_PATH" && \
+    cd "$DATA_PATH" && \
+    git clone git://github.com/forairan/Ogar.git . && \
     npm install ws
 ENTRYPOINT ["/docker-entrypoint.sh"]

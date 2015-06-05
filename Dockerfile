@@ -2,7 +2,7 @@ FROM gliderlabs/alpine:3.1
 MAINTAINER Alexander T. <galexrt@googlemail.com>
 
 ENV DATA_PATH="/data" SERVER_USER="server" SERVER_GROUP="server"
-RUN addgroup -r "$SERVER_GROUP" && \
+RUN addgroup -S "$SERVER_GROUP" && \
     adduser -r -m -h "$DATA_PATH" -g "$SERVER_GROUP" "$SERVER_USER" && \
     apk --update add nodejs git && \
     cd "$DATA_PATH" && \

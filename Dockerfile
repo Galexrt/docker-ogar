@@ -3,7 +3,7 @@ MAINTAINER Alexander T. <galexrt@googlemail.com>
 
 ENV DATA_PATH="/data" SERVER_USER="server" SERVER_GROUP="server"
 RUN addgroup -S "$SERVER_GROUP" && \
-    adduser -r -m -h "$DATA_PATH" -g "$SERVER_GROUP" "$SERVER_USER" && \
+    adduser -S -h "$DATA_PATH" -G "$SERVER_GROUP" "$SERVER_USER" && \
     apk --update add nodejs git && \
     cd "$DATA_PATH" && \
     git clone git://github.com/forairan/Ogar.git Ogar && \

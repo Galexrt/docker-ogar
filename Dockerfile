@@ -1,12 +1,11 @@
-FROM gliderlabs/alpine:3.1
+FROM gliderlabs/alpine:3.2
 MAINTAINER Alexander T. <galexrt@googlemail.com>
 
-ENV DATA_PATH="/data"
-ADD docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod 755 /docker-entrypoint.sh && \
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh && \
     apk --update add bash nodejs git && \
-    mkdir -p "$DATA_PATH" && \
-    cd "$DATA_PATH" && \
-    git clone git://github.com/forairan/Ogar.git . && \
+    mkdir -p "/data" && \
+    git clone git://github.com/forairan/Ogar.git /data && \
+    cd "/data" && \
     npm install ws
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

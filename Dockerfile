@@ -5,7 +5,7 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh && \
     apk --update add bash nodejs git && \
     mkdir -p "/data" && \
-    git clone git://github.com/forairan/Ogar.git /data && \
+    git clone git://github.com/OgarProject/Ogar.git /data && \
     cd "/data" && \
-    npm install ws
+    npm install
 ENTRYPOINT ["/entrypoint.sh"]

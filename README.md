@@ -4,6 +4,10 @@
 
 [![Docker Repository on Quay.io](https://quay.io/repository/galexrt/ogar/status "Docker Repository on Quay.io")](https://quay.io/repository/ogar/zulip)
 
+Image available from:
+* [**Quay.io**](https://quay.io/repository/galexrt/ogar)
+* [**Docker Hub**](https://hub.docker.com/r/galexrt/ogar)
+
 ## Usage
 ## Configuration
 Just add environemnt variables beginning with `SETTING_` to your docker run command.

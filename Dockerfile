@@ -1,11 +1,15 @@
-FROM gliderlabs/alpine:3.2
-MAINTAINER Alexander T. <galexrt@googlemail.com>
+FROM gliderlabs/alpine:3.5
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh && \
-    apk --update add bash nodejs git && \
+MAINTAINER Alexander Trost <galexrt@googlemail.com>
+
+ENV DATA_PATH="/data"
+
+RUN apk --update add bash nodejs git && \
     mkdir -p "/data" && \
-    git clone git://github.com/OgarProject/Ogar.git /data && \
+    git clone https://github.com/OgarProject/Ogar.git /data && \
     cd "/data" && \
     npm install
+
+ADD entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]

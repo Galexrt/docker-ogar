@@ -5,7 +5,7 @@ if [ "$DEBUG" == "True" ] || [ "$DEBUG" == "true" ]; then
     sed -i 's/LogLevel.*/LogLevel = 10/g' "$SINUS_DIR/config.ini"
 fi
 
-CONFIG="$DATA_PATH/"
+CONFIG="$DATA_PATH/src/gameserver.ini"
 
 settingsConfiguration() {
     given_settings=($(env | sed -n -r "s/SETTING_([0-9A-Za-z_]*).*/\1/p"))
@@ -16,11 +16,7 @@ settingsConfiguration() {
             echo "Empty var for key \"$setting_key\"."
             continue
         fi
-		set +ex
-		sed -i 's/'"$setting_key"' =.*/'"$setting_key"' = '"$setting_var"'/' "$CONFIG"
-		if (( $? > 0 )); then
-        	echo "$setting_key = $setting_var" >> "$CONFIG"
-		fi
+		sed -i 's/'"$setting_key"' =.*/'"$setting_key"' = '"$setting_var"'/' "$CONFIG" || echo "$setting_key = $setting_var" >> "$CONFIG"
         echo "Added \"$setting_key\" (value \"$setting_var\") to gameserver.ini"
     done
 }

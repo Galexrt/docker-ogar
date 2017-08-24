@@ -10,6 +10,6 @@ RUN apk --update add bash nodejs git && \
     cd "/data" && \
     npm install
 
-ADD entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

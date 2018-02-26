@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-MAINTAINER Alexander Trost <galexrt@googlemail.com>
+LABEL maintainer="Alexander Trost <galexrt@googlemail.com>"
 
 ENV DATA_PATH="/data"
 
